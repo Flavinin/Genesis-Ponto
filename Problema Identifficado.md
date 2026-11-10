@@ -1,3 +1,0 @@
-### Identificação do problema
-
-O problema identificado na Gênesis foi a dificuldade de alguns funcionários em registrar corretamente os horários de entrada, saída e intervalos, além de acompanhar a quantidade de horas extras realizadas. A falta de um controle centralizado dificultava a conferência dos horários e o cálculo das horas trabalhadas, podendo gerar divergências entre as horas efetivamente realizadas e as registradas. Diante disso, surgiu a proposta de desenvolver o Gênesis Ponto, um sistema para registrar os horários dos funcionários, armazenar os dados e facilitar a consulta do histórico de ponto e das horas extras.
