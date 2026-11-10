@@ -1,3 +1,5 @@
+# GENESIS PONTO
+
 O Gênesis Ponto é um projeto acadêmico desenvolvido por estudantes da Universidade Paulista (UNIP), como parte do Projeto Integrado Multidisciplinar (PIM), com o objetivo de apresentar uma solução tecnológica para o gerenciamento e controle da jornada de trabalho dos colaboradores da empresa Gênesis Suprimentos.
 
 O projeto surgiu a partir da identificação de dificuldades relacionadas ao registro, à organização e ao acompanhamento dos horários dos funcionários. Diante desse cenário, foi proposta a criação de um sistema capaz de centralizar informações, facilitar consultas e contribuir para um controle mais eficiente e confiável da jornada de trabalho.
