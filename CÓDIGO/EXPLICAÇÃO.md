@@ -80,7 +80,6 @@ Apresenta os dias trabalhados, atrasos e horas extras.
 
 ## 🚀 Melhorias Futuras
 
-- Integração com banco de dados SQL.
 - Desenvolvimento de interface gráfica.
 - Geração de relatórios.
 - Controle individual de jornadas.
