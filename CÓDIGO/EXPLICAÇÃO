@@ -1,12 +1,9 @@
-
 # 💻 GENESIS PONTO
 ### Documentação do Código-Fonte
 
 **Projeto Integrado Multidisciplinar (PIM) — UNIP**
 
-O **Genesis Ponto** é um sistema de controle de ponto eletrônico desenvolvido em linguagem C para a empresa Gênesis Suprimentos.
-
-O projeto tem como objetivo facilitar o gerenciamento dos funcionários, o registro de horários e o acompanhamento da jornada de trabalho.
+O Genesis Ponto é um sistema de controle de ponto eletrônico desenvolvido em linguagem C para a empresa Gênesis Suprimentos.
 
 ---
 
@@ -14,32 +11,28 @@ O projeto tem como objetivo facilitar o gerenciamento dos funcionários, o regis
 
 | Tecnologia | Utilização |
 |---|---|
-| Linguagem C | Desenvolvimento do sistema |
-| Visual Studio Code | Ambiente de programação |
-| GitHub | Versionamento do código |
-| Arquivos TXT | Armazenamento dos dados |
+| Linguagem C | Desenvolvimento |
+| Visual Studio Code | Programação |
+| GitHub | Versionamento |
+| Arquivos TXT | Armazenamento |
 
 ---
 
 ## 📋 Requisitos Funcionais
 
-| Código | Funcionalidade | Descrição |
-|---|---|---|
-| RF01 | Cadastrar funcionários | Cadastro com matrícula e nome |
-| RF02 | Listar funcionários | Consulta dos funcionários cadastrados |
-| RF03 | Registrar entrada | Registro do início da jornada |
-| RF04 | Registrar intervalo | Saída e retorno do intervalo |
-| RF05 | Registrar saída final | Registro do fim da jornada |
-| RF06 | Calcular horas | Cálculo de horas trabalhadas |
-| RF07 | Resumo de frequência | Consulta de atrasos e horas extras |
+| Código | Funcionalidade |
+|---|---|
+| RF01 | Cadastrar funcionários |
+| RF02 | Listar funcionários |
+| RF03 | Registrar entrada |
+| RF04 | Registrar intervalo |
+| RF05 | Registrar saída final |
+| RF06 | Calcular horas trabalhadas |
+| RF07 | Gerar resumo de frequência |
 
 ---
 
-## ⚙️ Funcionamento do Sistema
-
-O sistema funciona por meio de um menu interativo no terminal.
-
-### Menu Principal
+## ⚙️ Menu Principal
 
 ```text
 ===== GENESIS PONTO =====
@@ -53,63 +46,12 @@ O sistema funciona por meio de um menu interativo no terminal.
 0 - Sair
 ```
 
-### 1. Cadastro de Funcionários
-
-Permite cadastrar funcionários utilizando uma matrícula única e o nome completo.
-
-### 2. Listagem de Funcionários
-
-Apresenta os funcionários cadastrados e suas respectivas matrículas.
-
-### 3. Registro de Ponto
-
-Permite registrar quatro tipos de marcações:
-
-- Entrada no trabalho;
-- Saída para o intervalo;
-- Retorno do intervalo;
-- Saída final.
-
-### 4. Consulta de Histórico
-
-Exibe os registros de ponto de um funcionário, incluindo data, horário e tipo de marcação.
-
-### 5. Cálculo de Horas Trabalhadas
-
-Calcula o tempo trabalhado com base nas marcações de entrada e saída, descontando o intervalo.
-
-### 6. Resumo de Frequência
-
-Apresenta informações sobre:
-
-- Dias trabalhados;
-- Atrasos;
-- Horas extras;
-- Total de horas trabalhadas.
-
----
-
-## 🧩 Estrutura do Código
-
-O sistema utiliza os seguintes recursos da linguagem C:
-
-| Recurso | Aplicação |
-|---|---|
-| `struct` | Organização dos dados |
-| `if / else` | Validação das informações |
-| `switch` | Controle das opções do menu |
-| `for / while` | Estruturas de repetição |
-| `FILE` | Manipulação de arquivos |
-| `time.h` | Registro de data e horário |
-| Funções | Organização das funcionalidades |
-
 ---
 
 ## 📂 Estrutura do Projeto
 
 ```text
 Genesis-PIM/
-│
 └── CÓDIGO/
     ├── CÓDIGO.md
     └── main.c
@@ -117,24 +59,32 @@ Genesis-PIM/
 
 ---
 
+## 🧩 Funcionamento
+
+### Cadastro de funcionários
+Permite cadastrar os funcionários utilizando matrícula e nome.
+
+### Registro de ponto
+Registra os horários de entrada, saída para intervalo, retorno do intervalo e saída final.
+
+### Histórico
+Permite consultar os registros realizados por cada funcionário.
+
+### Horas trabalhadas
+Calcula as horas trabalhadas, descontando os intervalos.
+
+### Resumo de frequência
+Apresenta os dias trabalhados, atrasos e horas extras.
+
+---
+
 ## 🚀 Melhorias Futuras
 
-O Genesis Ponto poderá receber novas funcionalidades:
-
-- Integração com banco de dados SQL;
-- Interface gráfica;
-- Geração de relatórios;
-- Cadastro de jornadas individuais;
-- Controle de acesso por usuário.
+- Integração com banco de dados SQL.
+- Desenvolvimento de interface gráfica.
+- Geração de relatórios.
+- Controle individual de jornadas.
 
 ---
 
-## 🎓 Objetivo Acadêmico
-
-O projeto foi desenvolvido como parte do **Projeto Integrado Multidisciplinar (PIM) da Universidade Paulista (UNIP)**.
-
-Seu desenvolvimento busca aplicar conhecimentos de programação estruturada, organização de dados, desenvolvimento de sistemas e gerenciamento de projetos.
-
----
-
-**Genesis Ponto — Sistema de Controle de Jornada de Trabalho**
+**Genesis Ponto — Projeto Integrado Multidisciplinar (UNIP)**
