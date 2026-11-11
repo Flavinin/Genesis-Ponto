@@ -1,9 +1,3 @@
-# SPRINTS — PROJETO GÊNESIS PONTO
-
-**Projeto:** Gênesis Ponto  
-**Empresa:** Gênesis Suprimentos  
-**Instituição:** Universidade Paulista (UNIP)
-
 ## 1. Sprint 01 — Planejamento e Organização do Backlog
 
 **Data de realização:** 17/10/2026
