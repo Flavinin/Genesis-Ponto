@@ -1,0 +1,281 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+#define MAX 1000
+
+typedef struct {
+    int matricula, perfil;
+    char nome[50], senha[30];
+} Usuario;
+
+typedef struct {
+    int matricula, tipo;
+    time_t hora;
+} Registro;
+
+Usuario usuarios[MAX];
+Registro registros[MAX];
+int nu = 0, nr = 0;
+
+const char *tipos[] = {
+    "Entrada", "Saida intervalo",
+    "Retorno intervalo", "Saida final"
+};
+
+int numero(char *msg) {
+    char s[80], extra;
+    int n;
+    while (1) {
+        printf("%s", msg);
+        if (!fgets(s, sizeof(s), stdin)) exit(0);
+        if (sscanf(s, " %d %c", &n, &extra) == 1)
+            return n;
+        puts("Digite um numero valido.");
+    }
+}
+
+void texto(char *msg, char *s, int tam) {
+    char linha[200];
+    do {
+        printf("%s", msg);
+        if (!fgets(linha, sizeof(linha), stdin)) exit(0);
+        linha[strcspn(linha, "\n")] = 0;
+    } while (!linha[0] || strchr(linha, ';') ||
+             strlen(linha) >= (size_t)tam);
+    strcpy(s, linha);
+}
+
+int buscar(int mat) {
+    for (int i = 0; i < nu; i++)
+        if (usuarios[i].matricula == mat) return i;
+    return -1;
+}
+
+void salvar() {
+    FILE *f = fopen("usuarios.txt", "w");
+    if (f) {
+        for (int i = 0; i < nu; i++)
+            fprintf(f, "%d;%d;%s;%s\n",
+                usuarios[i].matricula, usuarios[i].perfil,
+                usuarios[i].nome, usuarios[i].senha);
+        fclose(f);
+    } else puts("Erro ao salvar usuarios.");
+
+    f = fopen("registros.txt", "w");
+    if (f) {
+        for (int i = 0; i < nr; i++)
+            fprintf(f, "%d;%d;%lld\n",
+                registros[i].matricula, registros[i].tipo,
+                (long long)registros[i].hora);
+        fclose(f);
+    } else puts("Erro ao salvar registros.");
+}
+
+void carregar() {
+    FILE *f = fopen("usuarios.txt", "r");
+    if (f) {
+        Usuario u;
+        while (nu < MAX &&
+            fscanf(f, "%d;%d;%49[^;];%29[^\n]\n",
+                &u.matricula, &u.perfil, u.nome, u.senha) == 4)
+            if (u.matricula > 0 && u.perfil >= 1 &&
+                u.perfil <= 3 && buscar(u.matricula) < 0)
+                usuarios[nu++] = u;
+        fclose(f);
+    }
+
+    f = fopen("registros.txt", "r");
+    if (f) {
+        int mat, tipo;
+        long long h;
+        while (nr < MAX &&
+            fscanf(f, "%d;%d;%lld\n", &mat, &tipo, &h) == 3)
+            if (tipo >= 1 && tipo <= 4)
+                registros[nr++] = (Registro){mat, tipo, (time_t)h};
+        fclose(f);
+    }
+}
+
+void cadastrar(int primeiro) {
+    if (nu >= MAX) { puts("Limite atingido."); return; }
+
+    Usuario u;
+    u.matricula = numero("Matricula: ");
+
+    if (u.matricula <= 0 || buscar(u.matricula) >= 0) {
+        puts("Matricula invalida ou existente!");
+        return;
+    }
+
+    texto("Nome: ", u.nome, 50);
+    texto("Senha: ", u.senha, 30);
+
+    u.perfil = primeiro ? 1 :
+        numero("Perfil (1-ADM, 2-Gerente, 3-Funcionario): ");
+
+    if (u.perfil < 1 || u.perfil > 3) {
+        puts("Perfil invalido!"); return;
+    }
+
+    usuarios[nu++] = u;
+    salvar();
+    puts("Usuario cadastrado!");
+}
+
+void listar() {
+    if (!nu) puts("Nenhum usuario cadastrado.");
+    for (int i = 0; i < nu; i++)
+        printf("%d - %s (%s)\n",
+            usuarios[i].matricula, usuarios[i].nome,
+            usuarios[i].perfil == 1 ? "ADM" :
+            usuarios[i].perfil == 2 ? "Gerente" : "Funcionario");
+}
+
+int mesmoDia(time_t a, time_t b) {
+    struct tm x = *localtime(&a), y = *localtime(&b);
+    return x.tm_year == y.tm_year && x.tm_yday == y.tm_yday;
+}
+
+void registrar(int mat) {
+    if (nr >= MAX) { puts("Limite de registros!"); return; }
+
+    int tipo = numero(
+        "1-Entrada  2-Saida intervalo\n"
+        "3-Retorno  4-Saida final\nOpcao: ");
+
+    if (tipo < 1 || tipo > 4) {
+        puts("Opcao invalida!"); return;
+    }
+
+    time_t agora = time(NULL);
+    int ultimo = 0;
+
+    for (int i = 0; i < nr; i++)
+        if (registros[i].matricula == mat &&
+            mesmoDia(registros[i].hora, agora) &&
+            registros[i].tipo > ultimo)
+            ultimo = registros[i].tipo;
+
+    if (tipo != ultimo + 1) {
+        puts("Registro fora de sequencia!"); return;
+    }
+
+    registros[nr++] = (Registro){mat, tipo, agora};
+    salvar();
+    printf("Registrado: %s\n", tipos[tipo - 1]);
+}
+
+void consultar(int mat, int op) {
+    int dias = 0, atrasos = 0;
+    double horas = 0, extras = 0;
+
+    for (int i = 0; i < nr; i++) {
+        if (registros[i].matricula != mat) continue;
+
+        struct tm d = *localtime(&registros[i].hora);
+
+        if (op == 4)
+            printf("%s - %02d/%02d/%04d %02d:%02d\n",
+                tipos[registros[i].tipo - 1],
+                d.tm_mday, d.tm_mon + 1, d.tm_year + 1900,
+                d.tm_hour, d.tm_min);
+
+        if (registros[i].tipo != 1) continue;
+
+        time_t t[4] = {0};
+        int cont[4] = {0};
+
+        for (int j = 0; j < nr; j++)
+            if (registros[j].matricula == mat &&
+                mesmoDia(registros[i].hora, registros[j].hora)) {
+                int k = registros[j].tipo - 1;
+                cont[k]++;
+                t[k] = registros[j].hora;
+            }
+
+        if (cont[0] != 1 || cont[1] != 1 ||
+            cont[2] != 1 || cont[3] != 1 ||
+            t[0] >= t[1] || t[1] >= t[2] ||
+            t[2] >= t[3]) continue;
+
+        double h = (difftime(t[1], t[0]) +
+                    difftime(t[3], t[2])) / 3600.0;
+
+        horas += h;
+        dias++;
+        if (h > 8) extras += h - 8;
+        if (d.tm_hour * 60 + d.tm_min > 540) atrasos++;
+    }
+
+    if (op >= 5) {
+        printf("Dias trabalhados: %d\n", dias);
+        printf("Horas trabalhadas: %.2f h\n", horas);
+    }
+    if (op == 6) {
+        printf("Dias com atraso: %d\n", atrasos);
+        printf("Horas extras: %.2f h\n", extras);
+    }
+}
+
+void menu(int id) {
+    int op, perfil = usuarios[id].perfil;
+    int propriaMat = usuarios[id].matricula;
+
+    do {
+        printf("\n=== GENESIS PONTO | %s ===\n", usuarios[id].nome);
+        if (perfil == 1) puts("1-Cadastrar usuario");
+        if (perfil <= 2) puts("2-Listar usuarios");
+        puts("3-Registrar meu ponto");
+        puts("4-Consultar historico");
+        puts("5-Calcular horas");
+        puts("6-Resumo de frequencia");
+        puts("0-Sair da conta");
+
+        op = numero("Opcao: ");
+
+        if (op == 1 && perfil == 1) cadastrar(0);
+        else if (op == 2 && perfil <= 2) listar();
+        else if (op == 3) registrar(propriaMat);
+        else if (op >= 4 && op <= 6) {
+            int mat = perfil == 3 ? propriaMat :
+                numero("Matricula para consulta: ");
+
+            if (buscar(mat) >= 0) consultar(mat, op);
+            else puts("Usuario nao encontrado!");
+        }
+        else if (op != 0) puts("Opcao invalida ou sem permissao!");
+    } while (op != 0);
+}
+
+int main() {
+    carregar();
+
+    if (!nu) {
+        puts("Primeiro acesso - Cadastre o ADM");
+        cadastrar(1);
+    }
+
+    int op;
+    do {
+        puts("\n=== LOGIN GENESIS PONTO ===");
+        puts("1-Entrar\n0-Sair");
+        op = numero("Opcao: ");
+
+        if (op == 1) {
+            int mat = numero("Matricula: ");
+            char senha[30];
+            texto("Senha: ", senha, 30);
+
+            int id = buscar(mat);
+            if (id >= 0 && strcmp(usuarios[id].senha, senha) == 0)
+                menu(id);
+            else puts("Matricula ou senha incorreta!");
+        } else if (op != 0) puts("Opcao invalida!");
+    } while (op != 0);
+
+    puts("Encerrando...");
+    return 0;
+}
