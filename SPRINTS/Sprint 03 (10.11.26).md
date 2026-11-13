@@ -1,100 +1,106 @@
-  
-# 📌 SPRINT 03 — GÊNESIS PONTO
 
+# SPRINT 03 — Atualização do Sistema e Consolidação da Documentação
 
+**Data de realização:** 10/11/2026  
+**Projeto:** Gênesis Ponto  
+**Empresa:** Gênesis Suprimentos
 
-## 🎯 Objetivo da Sprint
+## 1. Descrição da Sprint
 
-A Sprint 03 tem como objetivo aprimorar o sistema Gênesis Ponto, realizando a modelagem do banco de dados, a ampliação da documentação, a revisão dos casos de uso e a atualização do código-fonte.
+No dia 10 de novembro de 2026, realizamos a terceira Sprint do projeto **Gênesis Ponto**, dando continuidade às atividades desenvolvidas nas etapas anteriores. O principal objetivo foi aprimorar o sistema, ampliar a documentação e revisar os elementos de modelagem do projeto.
 
-Além disso, será realizada uma Sprint Review com o intuito de revisar as entregas e consolidar a documentação geral do projeto.
+Durante essa etapa, trabalhamos na **modelagem do banco de dados**, buscando estruturar as informações necessárias para o armazenamento dos usuários, registros de ponto e níveis de acesso do sistema.
 
----
+Além disso, realizamos uma ampliação da documentação do projeto no GitHub, detalhando o funcionamento do código-fonte, as bibliotecas utilizadas, as funções implementadas e as regras de negócio.
 
-## 📋 Sprint Backlog
+Também foi realizada uma revisão dos diagramas de casos de uso, considerando as novas funcionalidades do sistema e a implementação dos três perfis de usuário: **Administrador (ADM), Gerente e Funcionário**.
+
+Por fim, realizamos a atualização do código-fonte e uma **Sprint Review**, com o intuito de revisar as entregas, avaliar as melhorias implementadas e consolidar a documentação geral do projeto.
+
+## 2. Sprint Backlog — Atividades Realizadas
 
 | ID | Atividade | Descrição | Status |
 |---|---|---|---|
-| 01 | Modelagem do Banco de Dados| Definir entidades, atributos e relacionamentos do banco de dados. | 🟢 Concluído |
-| 02 | Ampliação da documentação | Complementar a documentação das bibliotecas, funções, requisitos e funcionamento do sistema. | 🟢 Concluido |
-| 03 | Retrospectiva dos casos de uso | Revisar os diagramas e atualizar as permissões dos três perfis de usuário. | 🟢 Concluído |
-| 04 | Atualização do código | Implementar os perfis ADM, Gerente e Funcionário, mantendo as funcionalidades e reduzindo o código. | 🟢 Concluído |
-| 05 | Sprint Review | Revisar as entregas e consolidar a documentação geral do projeto no GitHub. | 🟢 Concluído |
+| SB10 | Modelagem do Banco de Dados | Estruturação das entidades, atributos e relacionamentos do banco de dados | Concluído |
+| SB11 | Ampliação da Documentação | Complementação da documentação técnica e funcional no GitHub | Concluído |
+| SB12 | Retrospectiva dos Casos de Uso | Revisão dos diagramas de casos de uso e atualização das permissões dos usuários | Concluído |
+| SB13 | Atualização do Código-Fonte | Implementação dos três níveis de acesso e simplificação do código em C | Concluído |
+| SB14 | Sprint Review | Revisão das entregas e consolidação da documentação geral do projeto | Concluído |
 
----
+## 3. Desenvolvimento das Atividades
 
-## 🛠️ Atividades Desenvolvidas
+### Modelagem do Banco de Dados
 
-### 1. Modelagem do Banco de Dados
+Durante a terceira Sprint, desenvolvemos a modelagem do banco de dados do Gênesis Ponto, identificando as principais entidades, atributos e relacionamentos necessários para organizar as informações do sistema.
 
-Desenvolvimento da modelagem conceitual e lógica do banco de dados, identificando as entidades, atributos e relacionamentos necessários para armazenar as informações dos usuários e registros de ponto.
+A modelagem foi realizada considerando os dados dos usuários, seus respectivos perfis de acesso e os registros de ponto eletrônico.
 
-### 2. Ampliação da Documentação
+Essa atividade teve como objetivo estruturar o armazenamento das informações de maneira organizada, estabelecendo uma base para uma futura integração do sistema com um banco de dados.
 
-Atualização da documentação do repositório GitHub, incluindo:
+### Ampliação da Documentação
 
+Realizamos uma ampliação da documentação do projeto no repositório GitHub, buscando apresentar de maneira mais detalhada a estrutura e o funcionamento do Gênesis Ponto.
 
-### 3. Retrospectiva dos Casos de Uso
+A documentação passou a contemplar as bibliotecas utilizadas na linguagem C, as funções implementadas, as estruturas de dados, os requisitos funcionais e não funcionais e as regras de negócio do sistema.
 
-Revisão dos diagramas de casos de uso desenvolvidos na ferramenta Astah, considerando a evolução do sistema e a inclusão dos três tipos de usuários:
+Também foram acrescentadas informações sobre os níveis de acesso, o funcionamento dos menus e os processos de registro de ponto, cálculo de horas trabalhadas e consulta de frequência.
 
-- Administrador (ADM).
-- Gerente.
-- Funcionário.
+Essa atividade contribuiu para facilitar a compreensão do código-fonte e melhorar a organização das informações do projeto.
 
-### 4. Atualização do Código-Fonte
+### Retrospectiva dos Casos de Uso
 
-Aprimoramento do código desenvolvido em linguagem C, com a implementação de:
+Realizamos uma revisão dos diagramas de casos de uso desenvolvidos anteriormente na ferramenta Astah, considerando as alterações realizadas no sistema ao longo das Sprints.
 
-- Login por matrícula e senha.
-- Três níveis de acesso.
-- Controle de permissões.
-- Registro e consulta de pontos.
-- Cálculo de horas trabalhadas.
-- Resumo de frequência.
-- Redução e organização do código-fonte.
+A principal atualização foi a inclusão dos três tipos de usuários: **Administrador (ADM), Gerente e Funcionário**, representando suas respectivas permissões e interações com o sistema.
 
----
+Foram revisadas as funcionalidades de login, cadastro de usuários, registro de ponto, consulta de histórico, cálculo de horas trabalhadas e resumo de frequência.
 
-## 📊 Entregas da Sprint
+Essa revisão permitiu manter os diagramas alinhados ao funcionamento do código atualizado e aos requisitos estabelecidos para o projeto.
 
-| Entrega | Resultado Esperado |
+### Atualização do Código-Fonte
+
+Durante essa etapa, realizamos a atualização do código-fonte do Gênesis Ponto, desenvolvido em linguagem C, com o objetivo de aprimorar sua organização e implementar novos recursos.
+
+Foram adicionados três níveis de acesso ao sistema:
+
+- **Administrador (ADM):** responsável pelo cadastro de usuários e gerenciamento das informações.
+- **Gerente:** responsável pelo acompanhamento das jornadas e consulta dos registros dos funcionários.
+- **Funcionário:** responsável pelo registro do próprio ponto e consulta de suas informações.
+
+Também foi implementado um sistema de login por matrícula e senha, permitindo que cada usuário tenha acesso às funcionalidades correspondentes ao seu perfil.
+
+Além disso, buscamos reduzir e simplificar o código-fonte, mantendo as funcionalidades de cadastro, registro de ponto, consulta de histórico, cálculo de horas trabalhadas e resumo de frequência.
+
+O armazenamento das informações permaneceu sendo realizado por meio de arquivos TXT, mantendo a proposta de um protótipo funcional.
+
+### Realização da Sprint Review
+
+Ao final da terceira Sprint, realizamos uma Sprint Review com o intuito de apresentar e avaliar as atividades desenvolvidas durante essa etapa.
+
+Durante a reunião, revisamos a modelagem do banco de dados, os diagramas de casos de uso, as alterações no código-fonte e a ampliação da documentação do projeto.
+
+A Sprint Review também teve como objetivo verificar se as entregas estavam alinhadas aos requisitos definidos anteriormente e às necessidades da empresa Gênesis Suprimentos.
+
+Com isso, buscamos consolidar a documentação geral do projeto, organizando as informações no GitHub e garantindo uma apresentação mais clara das funcionalidades e da evolução do sistema.
+
+## 4. Resultados da Sprint
+
+| Entrega | Resultado |
 |---|---|
-| Banco de Dados | Modelagem conceitual e lógica do sistema. |
-| Documentação | Repositório atualizado com informações detalhadas. |
-| Diagramas UML | Casos de uso atualizados conforme os três perfis. |
-| Código-Fonte | Protótipo em C atualizado e simplificado. |
-| Sprint Review | Validação das entregas e organização da documentação geral. |
+| Modelagem do Banco de Dados | Estruturação das entidades, atributos e relacionamentos do sistema |
+| Ampliação da Documentação | Documentação técnica e funcional do projeto ampliada e organizada |
+| Retrospectiva dos Casos de Uso | Diagramas revisados conforme os três níveis de acesso |
+| Atualização do Código-Fonte | Protótipo atualizado com login, controle de permissões e código simplificado |
+| Sprint Review | Revisão das entregas e consolidação da documentação geral do projeto |
 
----
+## 5. Considerações Finais
 
-## 🔍 Sprint Review
+A Sprint 03 representou um avanço importante no desenvolvimento do **Gênesis Ponto**, permitindo aprimorar o protótipo, atualizar suas funcionalidades e consolidar a documentação do projeto.
 
-A Sprint Review tem como objetivo apresentar e avaliar os incrementos desenvolvidos durante a Sprint 04, verificando se as entregas estão alinhadas aos requisitos do sistema Gênesis Ponto.
+A modelagem do banco de dados contribuiu para estabelecer uma estrutura mais organizada das informações, enquanto a revisão dos casos de uso possibilitou representar adequadamente os diferentes perfis de usuário.
 
-Durante a revisão, serão analisados os seguintes aspectos:
+A atualização do código-fonte permitiu implementar os três níveis de acesso, melhorar a organização do programa e preservar as funcionalidades anteriormente desenvolvidas.
 
-| Item | Objetivo da Revisão |
-|---|---|
-| Modelagem do BD | Verificar as entidades e seus relacionamentos. |
-| Documentação | Conferir as informações e explicações do sistema. |
-| Casos de Uso | Validar as funcionalidades e permissões dos atores. |
-| Código-Fonte | Verificar o funcionamento e as melhorias implementadas. |
-| GitHub | Consolidar e organizar a documentação geral do projeto. |
+Além disso, a ampliação da documentação e a realização da Sprint Review contribuíram para a organização das entregas, facilitando a compreensão do sistema e o acompanhamento da evolução do projeto.
 
----
-
-## ✅ Resultados Esperados
-
-Ao final da Sprint 03, espera-se obter um protótipo mais completo e organizado do Gênesis Ponto, contendo código-fonte atualizado, modelagem do banco de dados, diagramas revisados e documentação consolidada no GitHub.
-
----
-
-### 📌 Legenda de Status
-
-- 🟢 Concluído
-- 🟡 Em desenvolvimento
-- 🔴 Pendente
-
----
-
+Com a conclusão dessa etapa, a equipe estabeleceu uma base mais completa e organizada para a apresentação do **Gênesis Ponto**, demonstrando a evolução do sistema ao longo das Sprints e o atendimento aos objetivos do Projeto Integrado Multidisciplinar (PIM).
