@@ -15,11 +15,11 @@ Além disso, será realizada uma Sprint Review com o intuito de revisar as entre
 
 | ID | Atividade | Descrição | Status |
 |---|---|---|---|
-| 01 | Modelagem do Banco de Dados| Definir entidades, atributos e relacionamentos do banco de dados. | 🟡 Em desenvolvimento |
-| 02 | Ampliação da documentação | Complementar a documentação das bibliotecas, funções, requisitos e funcionamento do sistema. | 🟡 Em desenvolvimento |
-| 03 | Retrospectiva dos casos de uso | Revisar os diagramas e atualizar as permissões dos três perfis de usuário. | 🟡 Em desenvolvimento |
+| 01 | Modelagem do Banco de Dados| Definir entidades, atributos e relacionamentos do banco de dados. | 🟢 Concluído |
+| 02 | Ampliação da documentação | Complementar a documentação das bibliotecas, funções, requisitos e funcionamento do sistema. | 🟢 Concluido |
+| 03 | Retrospectiva dos casos de uso | Revisar os diagramas e atualizar as permissões dos três perfis de usuário. | 🟢 Concluído |
 | 04 | Atualização do código | Implementar os perfis ADM, Gerente e Funcionário, mantendo as funcionalidades e reduzindo o código. | 🟢 Concluído |
-| 05 | Sprint Review | Revisar as entregas e consolidar a documentação geral do projeto no GitHub. | 🔴 Pendente |
+| 05 | Sprint Review | Revisar as entregas e consolidar a documentação geral do projeto no GitHub. | 🟢 Concluído |
 
 ---
 
